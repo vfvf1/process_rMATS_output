@@ -92,7 +92,7 @@ def main(arg):
     MXE.columns = ['sample1','sample2','id','AS_type']
     total = pd.concat([A3SS, A5SS, SE, RI, MXE],axis=0)
     total = total.loc[ (total['sample1'].notna() &  total['sample2'].notna()) ,:]
-    total['sample1'] = total['sample2'].astype(str)
+    total['sample1'] = total['sample1'].astype(str)
     total['sample2'] = total['sample2'].astype(str)
     total = pd.concat([total['sample1'].str.split(',',expand=True),total['sample2'].str.split(',',expand=True),total['id'],total['AS_type']],axis=1)
     header = l1.strip().split(',')+l2.strip().split(',')+['gene\tchr\tstrand\tstart\tend']+['AS_type']
